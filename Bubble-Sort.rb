@@ -5,6 +5,7 @@ def sort_once (list)
     list.each_index do |index|
         number = working_list[index]
         next_number = working_list[index + 1]
+        
         unless next_number.nil?
             if number > next_number
                 number, next_number = next_number, number
