@@ -1,4 +1,4 @@
-def bubble_sort (list)
+def sort_once (list)
     working_list = list
     was_run = false
     
@@ -15,9 +15,16 @@ def bubble_sort (list)
             end
         end
     end
+    
+    return working_list, was_run
+end
+
+def bubble_sort (list)
+    list, was_run = sort_once(list)
+    
     if was_run
-        bubble_sort(working_list)
+        bubble_sort(list)
     else
-        return working_list
+        return list
     end
 end
