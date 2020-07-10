@@ -18,18 +18,12 @@ def sort_one_number (list)
             was_run = true
         end
     end
-    
+
     return working_list, was_run
 end
 
 def bubble_sort (list)
-    list, was_run = sort_one_number(list)
-    
-    if was_run
-        bubble_sort(list)
-    else
-        return list
-    end
-end
+    list, was_sorted = sort_one_number(list)
 
-sort_one_number ([4,3,2,1])
+    was_sorted ? bubble_sort(list) : (return list)
+end
