@@ -5,19 +5,17 @@ def swap_values_in_list (value1, value2, target_list, index)
     target_list[index+1] = value2
 end
 
-def sort_once (list)
+def sort_one_number (list)
     working_list = list
     was_run = false
     
     list.each_index do |index|
         number = working_list[index]
         next_number = working_list[index + 1]
-        
-        unless next_number.nil?
-            if number > next_number
-                swap_values_in_list(number, next_number, working_list, index)   
-                was_run = true
-            end
+
+        if next_number && number > next_number
+            swap_values_in_list(number, next_number, working_list, index)   
+            was_run = true
         end
     end
     
@@ -25,7 +23,7 @@ def sort_once (list)
 end
 
 def bubble_sort (list)
-    list, was_run = sort_once(list)
+    list, was_run = sort_one_number(list)
     
     if was_run
         bubble_sort(list)
@@ -33,3 +31,5 @@ def bubble_sort (list)
         return list
     end
 end
+
+sort_one_number ([4,3,2,1])
