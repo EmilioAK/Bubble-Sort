@@ -1,3 +1,10 @@
+def swap_values_in_list (value1, value2, target_list, index)
+    # Complicated workaround needed because Ruby sucks
+    value1, value2 = value2, value1
+    target_list[index] = value1
+    target_list[index+1] = value2
+end
+
 def sort_once (list)
     working_list = list
     was_run = false
@@ -8,10 +15,7 @@ def sort_once (list)
         
         unless next_number.nil?
             if number > next_number
-                number, next_number = next_number, number
-                working_list[index] = number
-                working_list[index+1] = next_number
-                
+                swap_values_in_list(number, next_number, working_list, index)   
                 was_run = true
             end
         end
