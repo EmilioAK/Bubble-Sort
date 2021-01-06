@@ -2,10 +2,7 @@ def sort_one_number (list)
     working_list = list.clone
 
     list.each_index do |index|
-        number = working_list[index]
-        next_number = working_list[index + 1]
-
-        if next_number && number > next_number
+        if working_list[index + 1] && working_list[index] > working_list[index + 1]
             working_list[index], working_list[index + 1] = working_list[index + 1], working_list[index] # Can't use the variables here for some reason
         end
     end
